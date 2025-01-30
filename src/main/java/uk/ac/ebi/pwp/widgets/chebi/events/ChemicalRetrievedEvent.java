@@ -10,7 +10,7 @@ import uk.ac.ebi.pwp.widgets.chebi.model.Chemical;
  */
 public class ChemicalRetrievedEvent extends GwtEvent<ChemicalRetrievedHandler> {
     public static Type<ChemicalRetrievedHandler> TYPE = new Type<>();
-    private Chemical chemical;
+    private final Chemical chemical;
 
     public ChemicalRetrievedEvent(Chemical chemical) {
         this.chemical = chemical;

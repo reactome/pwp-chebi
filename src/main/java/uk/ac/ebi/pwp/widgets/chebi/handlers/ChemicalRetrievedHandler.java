@@ -9,5 +9,6 @@ import uk.ac.ebi.pwp.widgets.chebi.events.ChemicalRetrievedEvent;
  */
 public interface ChemicalRetrievedHandler extends EventHandler {
     void onChemicalRetrieved(ChemicalRetrievedEvent event);
+
     void onChemicalFactoryError(Throwable exception);
 }

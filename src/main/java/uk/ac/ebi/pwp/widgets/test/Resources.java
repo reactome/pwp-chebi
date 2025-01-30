@@ -10,7 +10,7 @@ import com.google.gwt.resources.client.TextResource;
  */
 public interface Resources extends ClientBundle {
 
-    Resources INSTANCE = (Resources) GWT.create(Resources.class);
+    Resources INSTANCE = GWT.create(Resources.class);
 
     @Source("chebi1148.xml")
     TextResource responseText();

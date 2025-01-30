@@ -34,7 +34,7 @@ public class ChEBIViewer extends Composite implements HasHandlers, ChemicalRetri
         ChemicalFactory.getChemical(chebiId, this);
     }
 
-    public HandlerRegistration addChEBIChemicalLoadedHandler(ChEBIChemicalLoadedHandler handler){
+    public HandlerRegistration addChEBIChemicalLoadedHandler(ChEBIChemicalLoadedHandler handler) {
         return this.addHandler(handler, ChEBIChemicalLoadedEvent.TYPE);
     }
 
@@ -42,7 +42,7 @@ public class ChEBIViewer extends Composite implements HasHandlers, ChemicalRetri
         return this.addHandler(handler, ChEBIChemicalNotAvailableEvent.TYPE);
     }
 
-    public static Widget getMessage(ImageResource imageResource, String customMessage){
+    public static Widget getMessage(ImageResource imageResource, String customMessage) {
         HorizontalPanel hp = new HorizontalPanel();
         hp.setSpacing(5);
 
@@ -56,7 +56,7 @@ public class ChEBIViewer extends Composite implements HasHandlers, ChemicalRetri
         return hp;
     }
 
-    private void initialize(){
+    private void initialize() {
         this.container = new HorizontalPanel();
         this.container.setWidth("100%");
         this.container.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
@@ -78,7 +78,7 @@ public class ChEBIViewer extends Composite implements HasHandlers, ChemicalRetri
         this.showErrorMessage(exception.getMessage());
     }
 
-    private void showChemical(Chemical c){
+    private void showChemical(Chemical c) {
         this.container.clear();
 
         FlexTable t = new FlexTable();
@@ -89,14 +89,14 @@ public class ChEBIViewer extends Composite implements HasHandlers, ChemicalRetri
         fireEvent(new ChEBIChemicalLoadedEvent());
     }
 
-    private void showErrorMessage(String msg){
+    private void showErrorMessage(String msg) {
         this.container.clear();
         this.container.add(getMessage(Images.INSTANCE.getAlertImage(), msg));
         fireEvent(new ChEBIChemicalNotAvailableEvent());
     }
 
 
-    private Widget getImage(Chemical chemical){
+    private Widget getImage(Chemical chemical) {
         int w = 200;
         String url = "https://www.ebi.ac.uk/chebi/displayImage.do?defaultImage=true&chebiId=" + chemical.getChebiId() + "&dimensions=" + w + "&scaleMolecule=true&transbg=true";
         Image image = new Image(url);

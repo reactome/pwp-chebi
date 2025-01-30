@@ -42,29 +42,29 @@ public final class ChemicalFactory {
         return getChemical(xml);
     }
 
-    private static Chemical getChemical(Document xml){
+    private static Chemical getChemical(Document xml) {
         String name = getElement(xml, "chebiAsciiName");
         String chebiId = getElement(xml, "chebiId");
 
         Chemical chemical = new Chemical(chebiId, name);
 
         chemical.setDefinition(getElement(xml, "definition"));
-        chemical.setEntityStar(Integer.valueOf(getElement(xml,"entityStar")));
+        chemical.setEntityStar(Integer.valueOf(getElement(xml, "entityStar")));
 
         NodeList secondaryChEBIIds = xml.getElementsByTagName("SecondaryChEBIIds");
         for (int i = 0; i < secondaryChEBIIds.getLength(); i++) {
-            chemical.addSecondaryChEBIIds(((Text)secondaryChEBIIds.item(i).getFirstChild()).getData());
+            chemical.addSecondaryChEBIIds(((Text) secondaryChEBIIds.item(i).getFirstChild()).getData());
         }
 
         return chemical;
     }
 
-    private static String getElement(Document xml, String element){
+    private static String getElement(Document xml, String element) {
         NodeList n = xml.getElementsByTagName(element);
-        if(n!=null){
-            if(n.getLength()>0){
+        if (n != null) {
+            if (n.getLength() > 0) {
                 Element aux = (Element) n.item(0);
-                if(aux.hasChildNodes()){
+                if (aux.hasChildNodes()) {
                     return ((Text) aux.getFirstChild()).getData();
                 }
             }

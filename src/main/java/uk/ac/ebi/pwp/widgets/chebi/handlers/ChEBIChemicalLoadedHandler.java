@@ -7,7 +7,7 @@ import uk.ac.ebi.pwp.widgets.chebi.events.ChEBIChemicalLoadedEvent;
  * @author Guilherme Viteri <gviteri@ebi.ac.uk>
  * @author Kostas Sidiropoulos <ksidiro@ebi.ac.uk>
  */
-public interface ChEBIChemicalLoadedHandler extends EventHandler{
+public interface ChEBIChemicalLoadedHandler extends EventHandler {
 
     void onChEBIChemicalLoaded(ChEBIChemicalLoadedEvent event);
 }

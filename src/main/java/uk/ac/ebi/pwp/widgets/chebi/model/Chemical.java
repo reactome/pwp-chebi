@@ -8,8 +8,8 @@ import java.util.List;
  * @author Kostas Sidiropoulos <ksidiro@ebi.ac.uk>
  */
 public class Chemical {
-    private String chebiId;
-    private String name;
+    private final String chebiId;
+    private final String name;
     private String definition;
     private String status;
     private String smile;
@@ -18,7 +18,7 @@ public class Chemical {
     private String charge;
     private String mass;
     private Integer entityStar;
-    private List<String> secondaryChEBIIds;
+    private final List<String> secondaryChEBIIds;
 
     public Chemical(String chebiId, String name) {
         this.chebiId = chebiId;

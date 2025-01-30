@@ -10,7 +10,7 @@ import java.util.List;
  * @author Kostas Sidiropoulos <ksidiro@ebi.ac.uk>
  */
 public class ChEBITable extends Composite {
-    private HTMLTable table;
+    private final HTMLTable table;
 
     public ChEBITable(Chemical chemical) {
         this.table = new FlexTable();
@@ -20,7 +20,7 @@ public class ChEBITable extends Composite {
         this.setWidth("100%");
     }
 
-    private void initialize(Chemical chemical){
+    private void initialize(Chemical chemical) {
         this.addProperty("ChEBI Name", chemical.getName());
         this.addIdentifier(chemical.getChebiId());
         this.addProperty("Definition", chemical.getDefinition());
@@ -29,31 +29,31 @@ public class ChEBITable extends Composite {
         this.initWidget(this.table);
     }
 
-    private void addIdentifier(String identifier){
+    private void addIdentifier(String identifier) {
         Anchor anchor = new Anchor(identifier, "https://www.ebi.ac.uk/chebi/advancedSearchFT.do?searchString=" + identifier, "_blank");
         int row = this.table.getRowCount();
         this.table.setWidget(row, 0, new Label("ChEBI ID"));
         this.table.setWidget(row, 1, anchor);
     }
 
-    private void addProperty(String title, String content){
-        if(content==null) return;
+    private void addProperty(String title, String content) {
+        if (content == null) return;
         int row = this.table.getRowCount();
         this.table.setWidget(row, 0, new Label(title));
         this.table.setWidget(row, 1, new Label(content));
     }
 
-    private void addProperty(String title, List<String> content){
+    private void addProperty(String title, List<String> content) {
         StringBuilder sb = new StringBuilder();
         for (String s : content) {
             sb.append(s);
             sb.append(", ");
         }
-        sb.delete(sb.length()-2, sb.length());
+        sb.delete(sb.length() - 2, sb.length());
         this.addProperty(title, sb.toString());
     }
 
-    private void addGoldenStars(Integer num){
+    private void addGoldenStars(Integer num) {
         FlowPanel starsPanel = new FlowPanel();
         for (int i = 0; i < num; i++) {
             starsPanel.add(new Image(Images.INSTANCE.getGoldenStar().getSafeUri()));
