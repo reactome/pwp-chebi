@@ -6,8 +6,8 @@ import uk.ac.ebi.pwp.widgets.chebi.model.Chemical;
 import java.util.List;
 
 /**
- * @author Guilherme Viteri <gviteri@ebi.ac.uk>
- * @author Kostas Sidiropoulos <ksidiro@ebi.ac.uk>
+ * @author Guilherme Viteri (gviteri@ebi.ac.uk)
+ * @author Kostas Sidiropoulos (ksidiro@ebi.ac.uk)
  */
 public class ChEBITable extends Composite {
     private final HTMLTable table;
